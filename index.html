@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Портфолио UI дизайнера</title>
+  <!-- Подключение Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    /* Общие стили */
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Шапка */
+    header {
+      background-color: #fff;
+      padding: 40px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #222;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    /* Навигация */
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s;
+      font-size: 1em;
+    }
+
+    nav a:hover {
+      color: #007BFF;
+    }
+
+    /* Разделы */
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #222;
+      position: relative;
+    }
+
+    /* Линия под заголовком */
+    section h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      background-color: #007BFF;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* О себе */
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: none;
+    }
+
+    .about img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 4px solid #fff;
+    }
+
+    .about h2 {
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin-bottom: 30px;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    /* Блок соцсетей */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      font-size: 1.5em;
+      color: #555;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #007BFF;
+      transform: scale(1.2);
+    }
+
+    /* Галерея проектов */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .project img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-info {
+      padding: 15px;
+    }
+
+    .project-info h3 {
+      margin: 0 0 10px;
+      font-size: 1.2em;
+      color: #222;
+    }
+
+    .project-info p {
+      margin: 0;
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    /* Контакты */
+    footer {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    footer p {
+      margin: 10px 0;
+      font-size: 1em;
+      color: #555;
+    }
+
+    /* Контактные элементы с иконками */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 1.1em;
+    }
+
+    /* Адаптивность */
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 1em;
+      }
+    }
+	.link {
+		position: relative;
+		display: inline-block;
+		text-decoration: none; /* Убирает подчеркивание по умолчанию */
+		color: currentColor; /* Цвет текста */
+	}
+
+	.link::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 2px; /* Толщина линии */
+		bottom: 0;
+		left: 0;
+		background-color: blue; /* Синий цвет для линии */
+		transform: scaleX(0); /* Начинаем с невидимого состояния */
+		transform-origin: bottom right; /* Точка начала анимации */
+		transition: transform 0.3s ease-out; /* Плавность и скорость анимации */
+	}
+
+	.link:hover::after {
+		transform: scaleX(1); /* Увеличение до полного размера при наведении */
+		transform-origin: bottom left; /* Точка окончания анимации */
+	}
+	ul {
+    list-style-type: none; /* Можно выбрать круг, диск, квадрат и т.д. */
+    padding-left: 0px; /* Отступ для выравнивания списка */
+	margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    max-width: 800px;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #555;
+    }
+    li {
+    margin-bottom: 0px; /* Отступ между элементами списка */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Михайлова Патимат</h1>
+  <p>UI/UX Дизайнер | Создаю современные интерфейсы</p>
+  <nav>
+    <a href="#about">О себе</a>
+    <a href="#works">Работы</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+</header>
+
+<section id="about" class="about">
+  <h2>Обо мне</h2>
+  <p>Привет!<br>Меня зовут Патимат, и я начинающий специалист в области дизайна интерфейсов и пользовательского опыта (UI/UX). Сейчас активно развиваюсь в профессии и ищу возможности применить полученные знания на практике, став стажёром в команде профессионалов.<br>
+<br>Я знаю основы работы в Figma и умею:<br>
+<br>- Создавать компоненты, варианты и библиотеки<br>
+- Использовать AutoLayOut и Constraints<br>
+- Работать с цветом<br>
+- Работать с типографикой<br>
+- Работать с масками и изображениями<br>
+- Работать с эффектами и стилями<br>
+- Работать с фигурами<br>
+<br>
+Ниже предоставлены мои учебные проекты.
+</p>
+</section>
+
+<section id="works">
+  <h2>Мои работы</h2>
+  <div class="gallery">
+    <div class="project">
+      <img src="project1.png" alt="Проект 1" />
+      <div class="project-info">
+        <h3>Сайт-Портфолио фотографа</h3>
+        <a href="https://www.figma.com/design/Y3oXFnynIJ3tw9EbXNfyse/Working-book-%7C-Figma-Essential-Course--Copy-?node-id=9084-104&t=3oBAKhbQoEQk3cFH-1"class="link">Ссылка на проект</a>
+      </div>
+    </div>
+    <div class="project">
+      <img src="project2.png" alt="Проект 2" />
+      <div class="project-info">
+        <h3>Сайт туроператора</h3>
+        <a href="https://www.figma.com/proto/kAFL7Kv2o1haN0J6rm9QzG/TRAVEL-SITE?page-id=0%3A1&node-id=1-137&viewport=-1149%2C-740%2C0.2&t=kkfFl9QK1le1SSax-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A137&show-proto-sidebar=1"class="link">Ссылка на проект</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Контакты</h2>
+  <div class="contact-item">
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:karbakhovapatya@mail.ru">karbakhovapatya@mail.ru</a>
+  </div>
+  <div class="contact-item">
+    <i class="fas fa-phone"></i>
+    <a href="tel:+1234567890">+7 (985) 068-70-64</a>
+  </div>
+  <!-- Иконки соцсетей и мессенджеров -->
+  <div class="social-icons">
+    <a href="https://wa.me/79850687064"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://t.me/PatiKarb"><i class="fab fa-telegram"></i></a>
+  </div>
+  <!-- Иконка hh.ru -->
+  <div class="contact-item" style="margin-top:15px;">
+    <i class="fas fa-user-tie"></i>
+    <a href="https://hh.ru/resume/b2b49d00ff10224cec0039ed1f377641714c65?hhtmFrom=resume_list" target="_blank" title="hh.ru" style="font-weight:600;">hh.ru</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Патимат Михайлова. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
